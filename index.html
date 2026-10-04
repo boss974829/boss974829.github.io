@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aditya Agrahari</title>
+  <meta name="description" content="Aditya Agrahari — THE RULE. Software, AI, automation, and the path toward robotics." />
+  <meta name="theme-color" content="#090a0c" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23090a0c'/%3E%3Crect x='6' y='5' width='2' height='22' fill='%23e0c48a'/%3E%3Cpath d='M12 23 L18 9 L24 23' fill='none' stroke='%23f3efe6' stroke-width='2'/%3E%3Cpath d='M14.2 18 H21.6' stroke='%23f3efe6' stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090a0c;
+      --fg: #f3efe6;
+      --muted: #b7b0a4;
+      --gold: #e0c48a;
+      --line: #2c2a26;
+      --surface: #141516;
+      --display: "Instrument Serif", Georgia, serif;
+      --sans: "Outfit", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); color: var(--fg); overflow-x: clip; }
+    body { margin: 0; min-height: 100svh; background: var(--bg); color: var(--fg); font-family: var(--sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    button:active, a.btn:active { scale: 0.96; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    ::selection { background: var(--gold); color: var(--bg); }
+    .progress { position: fixed; top: 0; left: 0; z-index: 40; height: 2px; width: 100%; transform-origin: left; background: var(--gold); pointer-events: none; }
+    header { position: fixed; inset: 0 0 auto 0; z-index: 30; }
+    header.scrolled { border-bottom: 1px solid var(--line); background: rgba(9,10,12,.8); backdrop-filter: blur(12px); }
+    .bar { max-width: 72rem; margin: 0 auto; height: 4rem; display: flex; align-items: center; justify-content: space-between; padding: 0 1.25rem; gap: 1rem; }
+    .mark { letter-spacing: .22em; font-size: .875rem; font-weight: 500; }
+    nav { display: flex; gap: 1.25rem; font-size: .875rem; color: var(--muted); }
+    nav a:hover { color: var(--fg); }
+    .hero { position: relative; min-height: 100svh; }
+    .media { position: absolute; inset: 0; overflow: hidden; background: var(--bg); }
+    .media img, .media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% 18%; }
+    .scrim { position: absolute; inset: 0; background:
+      linear-gradient(90deg, rgba(9,10,12,.94) 0%, rgba(9,10,12,.78) 34%, rgba(9,10,12,.28) 62%, rgba(9,10,12,.45) 100%),
+      linear-gradient(180deg, rgba(9,10,12,.55) 0%, rgba(9,10,12,.05) 28%, rgba(9,10,12,.2) 58%, rgba(9,10,12,.92) 100%); }
+    .hero-inner { position: relative; z-index: 1; max-width: 72rem; margin: 0 auto; min-height: 100svh; display: flex; flex-direction: column; padding: 6rem 1.25rem 2.5rem; }
+    .hero-copy { margin-top: auto; max-width: 36rem; }
+    .kicker { font-size: .75rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+    h1 { font-family: var(--display); font-weight: 400; font-size: clamp(4.25rem, 12vw, 8.75rem); line-height: .86; letter-spacing: -.035em; margin: 1rem 0 0; }
+    h1 span { display: block; font-style: italic; color: var(--gold); }
+    .rule { display: block; height: 1px; width: 4.5rem; background: var(--gold); margin-top: 1.5rem; }
+    .lede { margin: 1.5rem 0 0; max-width: 28rem; font-size: 1.125rem; line-height: 1.35; }
+    .actions { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
+    .btn { display: inline-flex; height: 3rem; align-items: center; padding: 0 1.25rem; font-size: .875rem; font-weight: 500; transition: scale 150ms ease-out; }
+    .btn.solid { background: var(--fg); color: var(--bg); }
+    .btn.ghost { border: 1px solid var(--line); }
+    .film { display: inline-flex; height: 3rem; align-items: center; gap: .5rem; padding: 0 .75rem; font-size: .875rem; color: var(--muted); }
+    .film:hover { color: var(--fg); }
+    .note { margin-top: 2rem; max-width: 24rem; font-size: .75rem; letter-spacing: .02em; color: var(--muted); }
+    .ticker { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .ticker-track { display: flex; width: max-content; animation: ticker 48s linear infinite; }
+    .ticker:hover .ticker-track { animation-play-state: paused; }
+    .ticker span { display: flex; align-items: center; padding: 1rem; font-size: .875rem; color: var(--muted); }
+    .ticker b { color: var(--gold); font-weight: 500; margin-right: 1rem; }
+    section.block { max-width: 72rem; margin: 0 auto; padding: 6rem 1.25rem; }
+    h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2.75rem, 6vw, 3.75rem); line-height: .95; margin: 1rem 0 0; }
+    .split { display: grid; gap: 3rem; }
+    .portrait { width: min(100%, 18rem); aspect-ratio: 4/5; object-fit: cover; object-position: center 15%; filter: saturate(.85); }
+    figcaption { margin-top: .75rem; font-size: .75rem; color: var(--muted); }
+    .prose { display: flex; flex-direction: column; justify-content: end; gap: 1.5rem; font-size: 1.125rem; color: var(--muted); }
+    .prose .lead { color: var(--fg); margin: 0; }
+    .prose p { margin: 0; }
+    .quote { font-family: var(--display); font-style: italic; font-size: 1.5rem; line-height: 1.3; color: var(--fg); }
+    #path { border-top: 1px solid var(--line); }
+    ol { list-style: none; margin: 3.5rem 0 0; padding: 0; display: grid; gap: 1px; background: var(--line); }
+    ol li { background: var(--bg); padding: 1.25rem; }
+    ol h3 { font-family: var(--display); font-size: 1.875rem; font-weight: 400; margin: 1.5rem 0 0; }
+    ol p { margin: .75rem 0 0; font-size: .875rem; color: var(--muted); }
+    #work { border-top: 1px solid var(--line); }
+    .work-head { display: flex; flex-direction: column; gap: 2rem; }
+    .filters { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .filters button { height: 2.75rem; padding: 0 1rem; font-size: .875rem; color: var(--muted); border: 1px solid var(--line); }
+    .filters button.on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+    .row { border-top: 1px solid var(--line); }
+    .row:last-child { border-bottom: 1px solid var(--line); }
+    .row:hover { background: var(--surface); }
+    .row-grid { display: grid; gap: 1rem; padding: 1.5rem 0; }
+    .idx { font-size: .75rem; letter-spacing: .2em; color: var(--gold); }
+    .name { font-family: var(--display); font-size: 2.25rem; }
+    .blurb { font-size: .875rem; color: var(--muted); }
+    .meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .kind { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .open { display: inline-flex; height: 2.75rem; align-items: center; gap: .25rem; font-size: .875rem; }
+    footer { border-top: 1px solid var(--line); }
+    .foot { max-width: 72rem; margin: 0 auto; padding: 5rem 1.25rem; display: flex; flex-direction: column; gap: 2.5rem; }
+    .foot p.big { font-family: var(--display); font-size: clamp(2.5rem, 6vw, 3.75rem); line-height: .95; margin: 0; }
+    .foot p.big span { display: block; font-style: italic; color: var(--gold); }
+    .foot .sub { margin: 1.5rem 0 0; max-width: 28rem; color: var(--muted); }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (min-width: 800px) {
+      .split { grid-template-columns: 5fr 6fr; }
+      ol { grid-template-columns: repeat(5, 1fr); }
+      .work-head { flex-direction: row; align-items: end; justify-content: space-between; }
+      .row-grid { grid-template-columns: 2rem 14rem 1fr auto; align-items: center; }
+      .meta { justify-content: end; }
+      .foot { flex-direction: row; align-items: end; justify-content: space-between; }
+    }
+    @media (max-width: 720px) {
+      nav .path { display: none; }
+      h1 { font-size: 3.35rem; }
+      .hero-copy { margin-top: 38svh; }
+      .media img, .media video { object-position: 70% 0%; }
+      .scrim { background: linear-gradient(180deg, rgba(9,10,12,.35) 0%, rgba(9,10,12,.15) 32%, rgba(9,10,12,.78) 62%, rgba(9,10,12,.96) 100%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .media video { display: none; }
+      .ticker-track { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <header id="header">
+    <div class="bar">
+      <a class="mark" href="#top">THE RULE</a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#vision">Vision</a>
+        <a class="path" href="#path">Path</a>
+        <a href="https://github.com/boss974829" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="media" aria-hidden="true">
+      <img src="portrait.jpg" alt="" />
+      <video id="film" poster="portrait.jpg" autoplay muted loop playsinline preload="auto">
+        <source src="hero.mp4" type="video/mp4" />
+      </video>
+      <div class="scrim"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="kicker">India · Software & AI</p>
+        <h1>Aditya<span>Agrahari</span></h1>
+        <span class="rule"></span>
+        <p class="lede">Systems that understand, decide, and eventually move. From code, through intelligence, toward the physical world.</p>
+        <div class="actions">
+          <a class="btn solid" href="https://github.com/boss974829" target="_blank" rel="noreferrer">Open GitHub</a>
+          <a class="btn ghost" href="#work">See the work</a>
+          <button class="film" id="toggle" type="button" aria-pressed="true">Pause film</button>
+        </div>
+      </div>
+      <p class="note">Background film generated from the portrait on GitHub.</p>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+  <section class="block split" id="vision">
+    <div>
+      <p class="kicker">Vision</p>
+      <h2>Not just software that runs.</h2>
+      <figure>
+        <img class="portrait" src="avatar.jpg" alt="Aditya Agrahari, the portrait used on GitHub" />
+        <figcaption>The GitHub portrait, before it was set in motion.</figcaption>
+      </figure>
+    </div>
+    <div class="prose">
+      <p class="lead">I want technology that is intelligent, automated, scalable, and able to meet a real problem — not a demo that stops at the slide.</p>
+      <p>The long aim sits where software, artificial intelligence, automation, and robotics touch. Systems that understand, reason, learn, decide, and then act in the world.</p>
+      <p>The path I care about is a sequence, not a stack of buzzwords: traditional software, then AI-powered software, then autonomous agents, then intelligent machines.</p>
+      <p class="quote">Learn deeply. Build relentlessly. Automate intelligently. Explore what comes next.</p>
+    </div>
+  </section>
+
+  <section id="path">
+    <div class="block">
+      <p class="kicker">The path</p>
+      <h2>Code to machines that move.</h2>
+      <ol id="arc"></ol>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="block">
+      <div class="work-head">
+        <div>
+          <p class="kicker">Selected work</p>
+          <h2>From the GitHub bench.</h2>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+      </div>
+      <div id="rows" style="margin-top:3rem"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <div>
+        <p class="big">The next system<span>is already starting.</span></p>
+        <p class="sub">Aditya Agrahari · THE RULE · India. First principles, then a thing you can run.</p>
+      </div>
+      <a class="btn solid" href="https://github.com/boss974829" target="_blank" rel="noreferrer">github.com/boss974829</a>
+    </div>
+  </footer>
+
+  <script>
+    const projects = [
+      { index: "01", name: "Slipway", kind: "Games", lang: "TypeScript", blurb: "Four harbor games on one pier. Meshline, Kiln, Eel, and Slip.", href: "https://github.com/boss974829/slipway", live: "https://htmlpreview.github.io/?https://github.com/boss974829/slipway/blob/main/docs/index.html", liveLabel: "Play" },
+      { index: "02", name: "Bhoomi", kind: "Atlas", lang: "JavaScript", blurb: "A full-HD topographic map of India. Satellite draped on elevation, relief, and named landforms.", href: "https://github.com/boss974829/boomi" },
+      { index: "03", name: "Marginalia", kind: "Reading", lang: "TypeScript", blurb: "A mobile reader that speaks the PDF, answers from the pages, then keeps your place.", href: "https://github.com/boss974829/marginalia" },
+      { index: "04", name: "Adrahari", kind: "Lab", lang: "Desktop", blurb: "An independent software lab. Portable tools to lock, note, calculate, and picture. No install, no telemetry.", href: "https://github.com/boss974829/adrahari", live: "https://raw.githack.com/boss974829/adrahari/main/index.html", liveLabel: "Open store" },
+      { index: "05", name: "Meshline", kind: "Games", lang: "TypeScript", blurb: "A harbor-city strategy desk. Play Razor or Keel across nine relays.", href: "https://github.com/boss974829/meshline" },
+      { index: "06", name: "Shoply", kind: "Systems", lang: "Full stack", blurb: "A dockerized store. React, Express, and Postgres — catalog, cart, checkout, and orders.", href: "https://github.com/boss974829/PROJECT-ibm-all-here" }
+    ];
+    const arc = [
+      ["01", "Code", "Full-stack systems, from the interface down to the data."],
+      ["02", "AI", "Models that reason. Language, vision, and tools that learn."],
+      ["03", "Automation", "Workflows that run when no one is watching the screen."],
+      ["04", "Hardware", "Software that leaves the browser and meets the physical world."],
+      ["05", "Robotics", "Machines that understand, decide, and move on their own."]
+    ];
+    const ticker = ["Software engineering","Full-stack","Python","AI / ML","Deep learning","LLMs","Agents","Computer vision","Automation","Robotics","Systems design","India"];
+    const kinds = ["All", ...new Set(projects.map((p) => p.kind))];
+    let filter = "All";
+
+    document.getElementById("ticker").innerHTML = [...ticker, ...ticker].map((item) => `<span><b>/</b>${item}</span>`).join("");
+    document.getElementById("arc").innerHTML = arc.map(([step, title, text]) => `<li><span class="idx">${step}</span><h3>${title}</h3><p>${text}</p></li>`).join("");
+
+    const filters = document.getElementById("filters");
+    const rows = document.getElementById("rows");
+    function drawFilters() {
+      filters.innerHTML = kinds.map((kind) => `<button type="button" class="${kind === filter ? "on" : ""}" aria-pressed="${kind === filter}" data-kind="${kind}">${kind}</button>`).join("");
+    }
+    function drawRows() {
+      const shown = projects.filter((p) => filter === "All" || p.kind === filter);
+      rows.innerHTML = shown.map((p) => {
+        const openHref = p.live || p.href;
+        const openLabel = p.liveLabel || "Source";
+        return `<article class="row"><div class="row-grid">
+          <span class="idx">${p.index}</span>
+          <a class="name" href="${p.href}" target="_blank" rel="noreferrer">${p.name}</a>
+          <p class="blurb">${p.blurb}</p>
+          <div class="meta"><span class="kind">${p.kind}</span><a class="open" href="${openHref}" target="_blank" rel="noreferrer">${openLabel} ↗</a></div>
+        </div></article>`;
+      }).join("");
+    }
+    filters.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      filter = button.dataset.kind;
+      drawFilters();
+      drawRows();
+    });
+    drawFilters();
+    drawRows();
+
+    const video = document.getElementById("film");
+    const toggle = document.getElementById("toggle");
+    toggle.addEventListener("click", () => {
+      if (video.paused) { video.play(); toggle.textContent = "Pause film"; toggle.setAttribute("aria-pressed", "true"); }
+      else { video.pause(); toggle.textContent = "Play film"; toggle.setAttribute("aria-pressed", "false"); }
+    });
+    const header = document.getElementById("header");
+    const progress = document.getElementById("progress");
+    function onScroll() {
+      header.classList.toggle("scrolled", window.scrollY > 12);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  </script>
+</body>
+</html>
