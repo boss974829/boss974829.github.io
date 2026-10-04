@@ -1,5 +1,11 @@
-# Aditya Agrahari
+<p align="center">
+  <a href="https://boss974829.github.io">
+    <img src="https://boss974829.github.io/readme/landing.gif" width="100%" alt="The landing. The film, the vision, the work." />
+  </a>
+</p>
 
-Cinematic landing for [github.com/boss974829](https://github.com/boss974829). The film in the background is generated from the GitHub portrait.
+<p align="center">
+  <a href="https://boss974829.github.io"><strong>Open the landing →</strong></a>
+</p>
 
-Open the site: https://boss974829.github.io
+The film in the background is generated from the GitHub portrait. Profile and project pages point here.
