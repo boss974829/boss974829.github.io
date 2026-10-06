@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maximize Your Freedom</title>
+<meta name="description" content="A calm, sequenced course from Maximize Your Freedom: notes and the crux of each talk by Rajpal on work, life, and deep living.">
+<meta name="theme-color" content="#071311">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,560&family=Outfit:wght@360;480;560&display=swap" rel="stylesheet">
+<style>
+  :root { --fg:#e8f3ee; --muted:#9bb0a8; --accent:#d7c4a2; --line:rgba(232,243,238,.1); --glass:rgba(255,255,255,.045); }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; min-height:100vh; color:var(--fg); font-family:Outfit,"Segoe UI",sans-serif;
+    background:
+      radial-gradient(ellipse 55% 42% at 50% 0%, rgba(215,196,162,.14), transparent 62%),
+      radial-gradient(ellipse 80% 40% at 50% 110%, #0c2420 0%, transparent 58%),
+      linear-gradient(180deg, #0d221e 0%, #071311 42%, #040c0b 100%);
+  }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { width:min(1120px, calc(100% - 32px)); margin:0 auto; }
+  header.hero { padding:28px 0 8px; }
+  .card { background:var(--glass); border:1px solid var(--line); border-radius:28px; backdrop-filter:blur(10px); }
+  .mast { display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center; padding:22px; }
+  .moon { width:72px; height:72px; border-radius:50%; background:radial-gradient(circle at 36% 34%, #f3ead8 0%, #d7c4a2 48%, #a89068 100%); box-shadow:0 0 36px 6px rgba(215,196,162,.22); }
+  .kicker { margin:0; letter-spacing:.28em; text-transform:uppercase; font-size:11px; color:var(--accent); }
+  h1 { font-family:Fraunces,Georgia,serif; font-weight:460; font-size:clamp(34px,5vw,56px); line-height:.95; margin:6px 0 10px; letter-spacing:-.02em; }
+  .lede { margin:0; color:var(--muted); max-width:62ch; line-height:1.55; }
+  .progress-row { display:flex; align-items:center; gap:14px; margin-top:16px; color:var(--muted); font-size:13px; }
+  .bar { flex:1; height:3px; background:rgba(255,255,255,.08); border-radius:99px; overflow:hidden; }
+  .bar > span { display:block; height:100%; width:0; background:var(--accent); }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+  .chip, .ghost { border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--fg); border-radius:999px; padding:9px 14px; font:inherit; cursor:pointer; }
+  .chip.active, .ghost.primary { background:var(--accent); color:#1b140c; border-color:transparent; }
+  .layout { display:grid; grid-template-columns:320px 1fr; gap:14px; padding-bottom:48px; }
+  .side, .main { padding:16px; }
+  .search { width:100%; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--fg); border-radius:16px; padding:12px 14px; font:inherit; margin-bottom:10px; }
+  .hint { color:var(--muted); font-size:13px; line-height:1.45; margin:0 0 10px; }
+  .list { display:flex; flex-direction:column; gap:6px; max-height:70vh; overflow:auto; padding-right:4px; }
+  .row { text-align:left; border:0; background:transparent; color:inherit; font:inherit; border-radius:16px; padding:10px 12px; cursor:pointer; display:grid; grid-template-columns:28px 1fr auto; gap:8px; align-items:start; }
+  .row:hover, .row.active { background:rgba(255,255,255,.08); }
+  .idx, .mins { color:var(--muted); font-size:12px; }
+  .row b { font-weight:480; display:block; line-height:1.35; }
+  .check { color:var(--accent); }
+  .phase-label { letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-size:12px; margin:4px 0 8px; }
+  h2 { font-family:Fraunces,Georgia,serif; font-weight:460; font-size:clamp(26px,3vw,38px); line-height:1.15; margin:0 0 8px; }
+  .meta { color:var(--muted); font-size:14px; margin-bottom:14px; }
+  .frame { position:relative; border-radius:20px; overflow:hidden; background:#000; aspect-ratio:16/9; margin-bottom:16px; }
+  .frame iframe, .frame img { width:100%; height:100%; border:0; object-fit:cover; display:block; }
+  .gate { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:16px; background:linear-gradient(transparent, rgba(0,0,0,.72)); color:#fff; font-size:14px; }
+  h3 { font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:18px 0 8px; }
+  .note { line-height:1.65; margin:0; }
+  .crux { display:grid; gap:8px; padding:0; margin:0; list-style:none; }
+  .crux li { background:rgba(255,255,255,.05); border-radius:16px; padding:12px 14px; line-height:1.45; }
+  .nav { display:flex; gap:8px; margin-top:18px; flex-wrap:wrap; }
+  footer { color:var(--muted); font-size:13px; line-height:1.5; padding:0 0 40px; }
+  .empty { color:var(--muted); padding:12px; }
+  @media (max-width:860px) { .layout { grid-template-columns:1fr; } .list { max-height:42vh; } .mast { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="card mast">
+        <div class="moon" aria-hidden="true"></div>
+        <div>
+          <p class="kicker">A course in deep living</p>
+          <h1>Maximize Your Freedom</h1>
+          <p class="lede" id="lede">Loading the path…</p>
+          <div class="progress-row">
+            <div class="bar" aria-hidden="true"><span id="bar"></span></div>
+            <span id="count">0 sat with</span>
+            <a id="channel" href="https://www.youtube.com/@MaximizeYourFreedom" target="_blank" rel="noreferrer">His channel</a>
+          </div>
+        </div>
+      </div>
+      <div class="chips" id="chips"></div>
+    </header>
+    <div class="layout">
+      <aside class="card side">
+        <input class="search" id="q" placeholder="Search the path" aria-label="Search the path">
+        <p class="hint" id="hint"></p>
+        <div class="list" id="list"></div>
+      </aside>
+      <article class="card main" id="main"></article>
+    </div>
+    <footer>
+      A study guide of public talks, not the official channel. The videos remain on YouTube.
+      If a sitting is about distress, it is not care — speak to someone near you.
+      Source on <a href="https://github.com/boss974829/freedom">GitHub</a>.
+    </footer>
+  </div>
+<script>
+const COURSE_URL = "https://raw.githubusercontent.com/boss974829/freedom/main/src/data/course.json";
+const STORE = "myf-sat-with";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&":"&","<":"<",">":">",'"':""","'":"&#39;" }[c]));
+
+let course, phases, lessons, phase = "all", query = "", active = "", sat = new Set();
+try { sat = new Set(JSON.parse(localStorage.getItem(STORE) || "[]")); } catch (e) {}
+
+function save() { localStorage.setItem(STORE, JSON.stringify([...sat])); paintProgress(); }
+function paintProgress() {
+  const n = lessons.filter((l) => sat.has(l.id)).length;
+  $("count").textContent = n + " of " + lessons.length + " sat with";
+  $("bar").style.width = Math.round((n / lessons.length) * 100) + "%";
+}
+function chips() {
+  const all = [{ id:"all", title:"All" }, ...phases.map((p) => ({ id:p.id, title:p.numeral + " " + p.title }))];
+  $("chips").innerHTML = all.map((p) => `<button class="chip${p.id===phase?" active":""}" data-id="${p.id}">${esc(p.title)}</button>`).join("");
+}
+function visible() {
+  const q = query.trim().toLowerCase();
+  return lessons.filter((l) => (phase === "all" || l.phase === phase) && (!q || (l.title + " " + l.note + " " + l.crux.join(" ")).toLowerCase().includes(q)));
+}
+function renderList() {
+  const ph = phases.find((p) => p.id === phase);
+  $("hint").textContent = ph ? ph.blurb : "Watch straight through. The path opens on the government-job talk.";
+  const rows = visible();
+  $("list").innerHTML = rows.length ? rows.map((l) => {
+    const i = String(lessons.indexOf(l) + 1).padStart(2, "0");
+    return `<button class="row${l.id===active?" active":""}" data-id="${l.id}"><span class="idx">${i}</span><b>${esc(l.title)}</b><span class="mins">${sat.has(l.id)?'<span class="check">✓</span> ':""}${l.minutes ? l.minutes + "m" : ""}</span></button>`;
+  }).join("") : `<p class="empty">Nothing on the path matches.</p>`;
+}
+function watchUrl(l) { return `https://www.youtube.com/watch?v=${l.id}${l.start ? "&t=" + l.start + "s" : ""}`; }
+function renderMain() {
+  const l = lessons.find((x) => x.id === active) || lessons[0];
+  active = l.id;
+  const ph = phases.find((p) => p.id === l.phase);
+  const idx = lessons.indexOf(l);
+  const media = l.gated
+    ? `<div class="frame"><img alt="" src="https://i.ytimg.com/vi/${l.id}/hqdefault.jpg"><div class="gate"><span>YouTube age-restricts this talk, so it opens there. The notes below are from the talk.</span><p><a class="ghost primary" href="${watchUrl(l)}" target="_blank" rel="noreferrer">Watch on YouTube</a></p></div></div>`
+    : `<div class="frame"><iframe src="https://www.youtube.com/embed/${l.id}?rel=0${l.start ? "&start=" + l.start : ""}" title="${esc(l.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+  $("main").innerHTML = `
+    <p class="phase-label">${esc(ph.numeral)} ${esc(ph.title)}</p>
+    <h2>${esc(l.title)}</h2>
+    <p class="meta">${l.minutes ? l.minutes + " min · " : ""}${esc(course.channel)}${l.start ? " · begins at the turn in the talk" : ""}</p>
+    ${media}
+    <button class="ghost${sat.has(l.id)?" primary":""}" id="sat">${sat.has(l.id)?"Sat with this":"I sat with this"}</button>
+    <h3>Notes</h3>
+    <p class="note">${esc(l.note)}</p>
+    <h3>The crux</h3>
+    <ul class="crux">${l.crux.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>
+    <div class="nav">
+      <button class="ghost" id="prev" ${idx===0?"disabled":""}>Previous</button>
+      <button class="ghost" id="next" ${idx===lessons.length-1?"disabled":""}>Next talk</button>
+      <a class="ghost" href="${watchUrl(l)}" target="_blank" rel="noreferrer">Open on YouTube</a>
+    </div>`;
+  $("sat").onclick = () => { sat.has(l.id) ? sat.delete(l.id) : sat.add(l.id); save(); renderMain(); renderList(); };
+  $("prev").onclick = () => { if (idx) open(lessons[idx - 1].id); };
+  $("next").onclick = () => { if (idx < lessons.length - 1) open(lessons[idx + 1].id); };
+}
+function open(id) {
+  active = id;
+  history.replaceState(null, "", "#" + id);
+  renderList();
+  renderMain();
+  if (window.innerWidth < 860) $("main").scrollIntoView({ behavior:"smooth", block:"start" });
+}
+$("chips").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; phase = b.dataset.id; chips(); renderList(); };
+$("list").onclick = (e) => { const b = e.target.closest("button"); if (b) open(b.dataset.id); };
+$("q").oninput = (e) => { query = e.target.value; renderList(); };
+
+fetch(COURSE_URL).then((r) => r.json()).then((data) => {
+  course = data; phases = data.phases; lessons = data.lessons;
+  $("lede").textContent = lessons.length + " talks by " + course.host + ", in the order to watch them. Each sitting has notes, the crux, and the video. Travel clips stay off this path. Your place is saved on this device.";
+  $("channel").href = course.channelUrl;
+  const hash = decodeURIComponent(location.hash.slice(1));
+  active = lessons.some((l) => l.id === hash) ? hash : lessons[0].id;
+  chips(); paintProgress(); renderList(); renderMain();
+}).catch(() => { $("lede").textContent = "The path could not be loaded. Try again in a moment."; });
+</script>
+</body>
+</html>
